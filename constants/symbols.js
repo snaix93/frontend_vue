@@ -1,0 +1,9 @@
+export const DashboardRefresherSymbol = Symbol('dashboard refresher');
+export const HostTableRefresherSymbol = Symbol('hosts table refresher');
+export const HostDetailRefresherSymbol = Symbol('host detail refresher');
+export const ServiceCheckTableRefresherSymbol = Symbol('service check table refresher');
+export const CustomCheckTableRefresherSymbol = Symbol('custom check table refresher');
+export const WebCheckTableRefresherSymbol = Symbol('web check table refresher');
+export const SnmpCheckTableRefresherSymbol = Symbol('snmp check table refresher');
+export const FrontmenTableRefresherSymbol = Symbol('frontmen table refresher');
+export const EmailVerificationReminderRefresherSymbol = Symbol('email verification reminder refresher');

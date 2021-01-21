@@ -1,0 +1,19 @@
+// Overriding and custom .v-text-field styles
+
+.v-text-field
+  &.monospace-text-field
+    input
+      font-family: monospace
+      letter-spacing: 0.5px
+
+  &--outline
+    & > .v-input__control > .v-input__slot
+      border-width: 1px !important
+      border-radius: 1px
+
+    &:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot:hover
+      border-width: 1px !important
+
+  &--auto-height-messages
+    .v-messages
+      min-height: 0

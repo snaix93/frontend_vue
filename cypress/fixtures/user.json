@@ -1,0 +1,19 @@
+{
+  "user": {
+    "email": "cypress.user.fixture@test.com",
+    "roles": "ROLE_TEAM_ADMIN",
+    "nickname": null,
+    "productNews": 1,
+    "lang": "en",
+    "team": {
+      "name": "stubTeamName",
+      "maxHosts": 999,
+      "maxMembers": 25,
+      "defaultFrontmanUuid": "24995c49-45ba-43d6-9205-4f5e83d32a11",
+      "plan": "payg",
+      "timezone": "Europe\/Berlin",
+      "dateFormat": "L.",
+      "frontmanLocation": "EU-WEST"
+    }
+  }
+}

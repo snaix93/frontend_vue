@@ -1,0 +1,40 @@
+.popover
+  z-index: 5
+  max-width: 50vw
+
+  &.fade
+    opacity: 0;
+    transition: opacity 0.2s ease-out
+    &.show
+      opacity: 1
+
+.bs-popover
+  &-right
+    .popover-body
+      margin-left: 6px
+
+      p:last-child
+        margin-bottom: 0
+
+      &:before
+        content: ''
+        display: block
+        position absolute
+        width: 0
+        height: 0
+        left: -6px
+        top: 50%
+        border-style: solid
+        border-width: 6px 6px 6px 0
+        border-color: transparent #424242 transparent transparent
+        margin-top: -6px
+
+.popover-body
+  position: relative
+  background: #424242
+  font-size: 12px
+  font-weight: normal
+  color: rgba(255, 255, 255, .87)
+  padding: 8px 10px
+  border-radius: 2px
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12)

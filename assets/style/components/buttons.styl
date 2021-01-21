@@ -1,0 +1,42 @@
+// Overriding and custom button styles
+
+
+// Better icon placement on buttons
+.v-btn .v-btn__content .v-icon--left
+  margin-left: -4px
+  margin-right: 4px
+
+
+// Buttons with animation from animate.css should stop animation on hover
+.v-btn.animated
+  &:hover
+    animation-iteration-count: unset
+
+.v-btn
+  &.tertiary
+    color: var(--v-secondary-darken2)
+
+  // Buttons with the same gradient colors as on the marketing site
+  &.highlight-gradient
+    background-image: $cr-theme.highlight-gradient
+
+  &.titlecase
+    text-transform: capitalize
+
+  &.reset-text
+    text-transform: none
+
+  &.chip
+    min-width: 0
+    height: 32px
+    padding: 0 12px
+    font-size: 13px
+
+    &.small
+      height: 28px
+      padding: 0 10px
+
+  // Mini variant of vuetify buttons
+  &--mini
+    width: 22px
+    height: 22px

@@ -1,0 +1,24 @@
+// Overriding and custom select styles
+
+
+// Select with chips
+.v-select
+  &.v-select--chips .v-select__selections
+    padding: 4px;
+
+  .v-chip
+    margin: 0 4px 4px 0
+
+  &.v-select--chips--small
+    .v-chip .v-chip__content
+      height: 26px
+
+// Small v-select
+.v-select--small
+  .v-select__selections
+    font-size: 13px
+  .v-select__slot
+    .v-label
+      font-size: 13px
+    .v-input__icon--clear .v-icon
+      font-size: 16px

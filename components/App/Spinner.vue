@@ -1,0 +1,19 @@
+<template>
+  <v-layout
+    :fill-height="true"
+    justify-center
+    align-center
+  >
+    <v-flex
+      class="py-4 layout justify-center"
+      xs12
+    >
+      <v-progress-circular
+        indeterminate
+        :size="20"
+        :width="2"
+        color="secondary"
+      />
+    </v-flex>
+  </v-layout>
+</template>

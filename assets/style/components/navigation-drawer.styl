@@ -1,0 +1,49 @@
+// Overriding and custom navigation drawer styles
+
+
+.v-navigation-drawer
+
+  > .v-list
+
+    .v-list__tile
+      padding-left: 0
+
+      .v-list__tile__action
+        padding-left: 10px
+        justify-content: center
+
+      &.v-list__tile--link
+        &::before
+          content: ''
+          height: 40px
+          border: 3px solid transparent
+          position: absolute
+        &:hover::before
+          border-color: rgba(0,0,0,0.25)
+
+    .nav--active
+      .v-list__tile,
+      .v-list__tile:hover
+        background: #eee
+        &::before
+          border-color: var(--v-secondary-base)
+
+      .v-list__tile__action,
+      .v-list__tile__title,
+      .v-list__tile__content
+        color: var(--v-secondary-base)
+
+        .v-icon
+          color: inherit
+
+    .nav--inactive
+      .v-list__tile
+        padding-left: 25px
+
+  &--mini-variant
+    > .v-list
+
+      .v-list__tile
+        .v-list__tile__action
+          min-width: 50px
+          justify-content: flex-end

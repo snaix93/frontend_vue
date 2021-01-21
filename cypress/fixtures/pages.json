@@ -1,0 +1,98 @@
+[
+  {
+    "key": "dashboard",
+    "path": "/dashboard",
+    "content": ["dashboardContent"]
+  },
+  {
+    "key": "hosts",
+    "path": "/hosts",
+    "title": "Hosts",
+    "content": ["hostsList"]
+  },
+  {
+    "key": "events",
+    "path": "/events",
+    "title": "Events",
+    "content": ["eventsList"]
+  },
+  {
+    "key": "reports",
+    "path": "/reports",
+    "title": "Report",
+    "content": ["reportsList"]
+  },
+  {
+    "key": "frontmen",
+    "path": "/frontmen",
+    "title": "Frontmen",
+    "content": ["frontmenList"]
+  },
+  {
+    "key": "rules",
+    "path": "/rules",
+    "title": "Rules",
+    "content": ["rulesList"]
+  },
+  {
+    "key": "recipients",
+    "path": "/recipients",
+    "title": "Recipients",
+    "content": ["recipientsList"]
+  },
+  {
+    "key": "team",
+    "path": "/team",
+    "title": "Team",
+    "content": ["teamMembersList"]
+  },
+  {
+    "key": "subUnits",
+    "path": "/sub-units",
+    "title": "Sub-units",
+    "content": ["subUnitsList"]
+  },
+  {
+    "key": "settings",
+    "path": "/settings",
+    "title": "Settings",
+    "content": [
+      "settingsGroupProfile",
+      "settingsGroupRegional",
+      "settingsGroupTeam",
+      "settingsGroupMSP",
+      "settingsGroupPlanBilling",
+      "settingsGroupDeleteAccount"
+    ]
+  },
+  {
+    "key": "hostActivities",
+    "path": "/activity/hosts",
+    "title": "Host activities",
+    "content": ["hostActivitiesList"]
+  },
+  {
+    "key": "teamActivities",
+    "path": "/activity/team",
+    "title": "Team activities",
+    "content": ["teamActivitiesList"]
+  },
+  {
+    "key": "statusPages",
+    "path": "/status-pages",
+    "title": "Status pages",
+    "content": ["statusPagesList"]
+  },
+  {
+    "key": "api",
+    "path": "/api",
+    "title": "API",
+    "content": ["apiTokensList"]
+  },
+  {
+    "key": "learnAndSupport",
+    "path": "/learn",
+    "title": "Learn & Support",
+    "content": ["learnContent"]
+  }
+]

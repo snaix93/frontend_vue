@@ -1,0 +1,13 @@
+{
+  "type": "card",
+  "card_brand": "visa",
+  "card_last4": "1111",
+  "card_exp_month": 12,
+  "card_exp_year": 2030,
+  "email": "cypress.user.fixture@test.com",
+  "plan": "payg",
+  "canceled_at": null,
+  "created_at": 1592924247,
+  "paid": true,
+  "stripeKey": "pk_test_3IkJlXVk1MdrhbudrgIRBxJO"
+}

@@ -1,0 +1,111 @@
+image: node:10.15.3
+definitions:
+  caches:
+    downloads: ~/downloads
+    npm: $HOME/.npm
+    cypress: $HOME/.cache/Cypress
+  steps:
+    - step: &build
+        name: Build the frontend
+        caches:
+          - node
+          - downloads
+          - cypress
+        script:
+          - npm ci
+
+          # Prepare .env for environment
+          - echo BITBUCKET_DEPLOYMENT_ENVIRONMENT $BITBUCKET_DEPLOYMENT_ENVIRONMENT
+          - cp ".env.$BITBUCKET_DEPLOYMENT_ENVIRONMENT" .env
+          - cat .env
+
+          # - npm run generate
+          - npm run build
+          - ls -lah $HOME/.cache/Cypress
+          - rm .env
+          - rm -rf dist/**/*.js.map
+
+          # Create a build
+          - export VERSION=${BITBUCKET_REPO_SLUG}-${BITBUCKET_BRANCH}-${BITBUCKET_BUILD_NUMBER}
+          - export BUILD=build-${VERSION}.tar.gz
+          - date>dist/build.txt
+          - echo $VERSION>>build.txt
+          # Create the artifacts file first, otherwise you will get an error "file changed as we read it"
+          - touch $BUILD
+          - tar --exclude=BUILD -C dist/ -zcvf $BUILD .
+          - ls -lah
+          - md5sum $BUILD
+        artifacts:
+          - dist/**
+          - build*.tar.gz
+    - step: &test
+        name: Cypress E2E Test
+        image: cypress/base:10
+        options:
+          max-time: 10
+        caches:
+          - npm
+          - node
+          - cypress
+          - downloads
+        script:
+          # Download a caddy webserver
+          - test -d ~/downloads||mkdir ~/downloads
+          - test -e ~/downloads/caddy.tar.gz||wget --progress=bar:force:noscroll 'https://caddyserver.com/download/linux/amd64?license=personal&telemetry=off' -O ~/downloads/caddy.tar.gz
+          - test -e ~/downloads/caddy||tar -C ~/downloads/ -xvzf ~/downloads/caddy.tar.gz caddy
+          - chmod +x ~/downloads/caddy
+          - find ~/downloads
+          # Start the webserver
+          - ~/downloads/caddy -quiet -conf ./caddy.conf &
+          # In case the install script skipped Cypress post-install hook for some reason
+          # call install ourselves. If there is binary already installed, it will quickly finish.
+          # By overriding the install step we make sure the NPM modules AND the Cypress binary
+          # are installed before the cache is saved
+          # see https://docs.cypress.io/guides/guides/continuous-integration.html#Missing-binary
+          - npx cypress verify||(npx cypress install&&npx cypress verify)
+          # Get Cypress environment vars
+          - cp cypress.env.json-cypress-run cypress.env.json
+          # Run Cypress
+          - npm run cypress:run
+        artifacts:
+          - cypress/screenshots/**
+          - cypress/videos/**
+
+    - step: &deploy-to-staging
+        name: Deploy to staging
+        image: alpine:3.10
+        script:
+          - export VERSION=${BITBUCKET_REPO_SLUG}-${BITBUCKET_BRANCH}-${BITBUCKET_BUILD_NUMBER}
+          - export BUILD=build-${VERSION}.tar.gz
+          - apk --no-cache add openssh-client
+          - scp -P 24480 $BUILD www-data@playground2.cloudradar.info:/tmp/
+          - cat local_deployment.sh|ssh -p 24480 www-data@playground2.cloudradar.info "BUILD=$BUILD bash -e"
+
+    - step: &deploy-to-prod
+        name: Deploy to prod
+        image: alpine:3.10
+        script:
+          - export VERSION=${BITBUCKET_REPO_SLUG}-${BITBUCKET_BRANCH}-${BITBUCKET_BUILD_NUMBER}
+          - export BUILD=build-${VERSION}.tar.gz
+          - apk --no-cache add openssh-client
+          - scp -P 24480 $BUILD www-data@app1.cloudradar.io:/tmp/
+          - cat local_deployment.sh|ssh -p 24480 www-data@app1.cloudradar.io "BUILD=$BUILD bash -e"
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          deployment: Staging
+          <<: *build
+      - step: *deploy-to-staging
+  tags:
+    release-*:
+      - step:
+          deployment: Production
+          <<: *build
+      - step: *deploy-to-prod
+    hotfix-*:
+      - step:
+          deployment: Production
+          <<: *build
+      - step: *deploy-to-prod

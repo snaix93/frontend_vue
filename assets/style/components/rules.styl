@@ -1,0 +1,23 @@
+.section-subheaders
+  border-radius: 2px
+  position: relative
+  height: 56px
+  margin-right: 10px
+
+  &::before
+    content: '';
+    left: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid var(--v-primary-base);
+
+  &::after
+    content: "";
+    position: absolute;
+    height: 56px
+    width: 0;
+    right: -25px;
+    top: 0;
+    border: 28px solid white;
+    border-left: 28px solid #E0E0E0;

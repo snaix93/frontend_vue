@@ -1,0 +1,56 @@
+// Text
+
+.font-reset
+  font-family: 'Roboto', sans-serif !important
+
+.font-monospace
+  font-family: 'consolas', monospace;
+
+.font-primary
+  font-family: $cr-font-family-primary
+  .display-4,
+  .display-3,
+  .display-2,
+  .display-1,
+  .headline,
+  .title,
+  .subheading
+    font-family: $cr-font-family-primary !important
+    line-height: 1.4 !important
+
+.font-secondary
+  font-family: $cr-font-family-secondary
+  .display-4,
+  .display-3,
+  .display-2,
+  .display-1,
+  .headline,
+  .title,
+  .subheading
+    font-family: $cr-font-family-secondary !important
+    line-height: 1.5 !important
+
+.text-muted
+  color: rgba(0, 0, 0, .54) !important;
+
+.line-height-dense
+  line-height: 1.3
+
+.underline
+  text-decoration: underline
+
+.dashed-underline
+  text-decoration: underline
+  text-decoration-style: dashed
+
+.text-word-wrap
+  white-space: pre-wrap
+  overflow-wrap: break-word
+
+// Links
+
+a.no-text-decoration
+  text-decoration: none
+  &:hover,
+  &:focus
+    text-decoration: underline

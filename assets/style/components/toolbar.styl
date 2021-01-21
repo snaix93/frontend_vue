@@ -1,0 +1,37 @@
+// Overriding and custom toolbar styles
+
+.v-toolbar__items
+  .v-image--logo
+    align-self: center
+    overflow: visible
+
+.v-toolbar
+  &--admin
+    .v-toolbar__content
+      padding: 0 !important
+
+  &--page
+    z-index: 3 !important
+    width: calc(100% - 56px) !important
+    margin-left: 56px !important
+
+    .v-toolbar__content
+      justify-content: space-between
+
+    .drawer-open &,
+    .tv-mode &
+      width: calc(100% - 240px) !important
+      margin-left: 240px !important
+    .drawer-mini &
+      width: calc(100% - 80px) !important
+      margin-left: 80px !important
+
+    .v-tabs
+      align-self: stretch
+
+      &__bar,
+      &__wrapper,
+      &__container
+        height: 100%
+      &__container
+        align-items: center

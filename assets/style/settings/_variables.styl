@@ -1,0 +1,72 @@
+// change Vuetify variables here (see @vuetify/src/stylus/settings/_variables.styl)
+// e.g. $body-font-family = 'Montserrat'
+
+$spacer = 16px
+$spacer-x = $spacer
+$spacer-y = $spacer
+
+$spacers = {
+  zero: {
+    x: 0,
+    y: 0
+  },
+  one: {
+    x: ($spacer-x * .25),
+    y: ($spacer-y * .25)
+  },
+  two: {
+    x: ($spacer-x * .5),
+    y: ($spacer-y * .5)
+  },
+  three: {
+    x: $spacer-x,
+    y: $spacer-y
+  },
+  four: {
+    x: ($spacer-x * 1.5),
+    y: ($spacer-y * 1.5)
+  },
+  five: {
+    x: ($spacer-x * 3),
+    y: ($spacer-y * 3)
+  },
+  six: {
+    x: ($spacer-x * 4.5),
+    y: ($spacer-y * 4.5)
+  }
+}
+
+// additional colors
+$colors = {
+  coral: #F76240
+  red: #C62828
+  yellow: #ffd74e
+  green: #00C77F
+  blue: #50B6EF
+}
+
+// define Vuetify $theme values here
+$theme := {
+  primary: #008D8B
+  secondary: #00528D
+  accent: #008D8B
+  error: #C62828
+  info: #50B6EF
+  success: #00C77F
+  warning: #FFA000
+  tertiary: #C6F94C
+  highlight: $colors.coral
+  themes: {
+    dark: {
+      anchor: #FFFFFF
+    }
+  }
+}
+
+// CloudRadar additionals
+$cr-theme = {
+  highlight-gradient: linear-gradient(180deg,$theme.warning,$theme.highlight)
+}
+
+$cr-font-family-primary = 'Montserrat', sans-serif
+$cr-font-family-secondary = 'PT Serif', serif

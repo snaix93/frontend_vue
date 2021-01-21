@@ -1,0 +1,18 @@
+// Overriding and custom alert styles
+
+.v-alert
+
+  // Variant of .v-alert--outline with a light color and less padding
+  &.v-alert--light
+    padding: 2px 4px 2px 2px
+    border-color: transparent !important
+    line-height: 1.25
+
+    .v-alert__icon.v-icon
+      opacity: 0.6
+      margin-right: 6px
+
+    &.error--text
+      background-color: var(--v-error-lighten5)
+    &.info--text
+      background-color: var(--v-info-lighten5)

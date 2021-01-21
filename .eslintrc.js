@@ -1,0 +1,50 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    node: true,
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/recommended',
+  ],
+  plugins: [
+    'vue'
+  ],
+  rules: {
+    'func-names': ['error', 'never'],
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-v-html': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/require-prop-types': 'off',
+    'vue/html-closing-bracket-spacing': 'off',
+    'handle-callback-err': 'off',
+    'prefer-promise-reject-errors': 'off',
+    'no-shadow': 0,
+    'import/no-unresolved': 0,
+    'indent': 0,
+    'no-plusplus': 0,
+    'default-case': 0,
+    'no-param-reassign': 0,
+    'radix': 0,
+    'eqeqeq': 0,
+    'import/prefer-default-export': 0,
+    'no-underscore-dangle': 0,
+    'vue/valid-v-for': 0,
+    'max-len': 'off', // disable max length since there is no way to disable it in .vue style tags
+    'no-prototype-builtins': 0,
+    'camelcase': 0,
+    'vue/no-unused-components': 0,
+    'no-restricted-globals': 0,
+    'no-return-assign': 0,
+    'no-sequences': 0,
+    'no-useless-escape': 0,
+    'class-methods-use-this': 0,
+    'no-mixed-operators': 0,
+    'vue/valid-v-on': 0,
+  },
+};
