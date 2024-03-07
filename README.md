@@ -1,6 +1,3 @@
-# CloudRadar-Frontend
-
-> Frontend for my.cloudradar.io using Vue.js / Nuxt.js
 
 ## Build Setup
 
